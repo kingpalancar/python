@@ -1,5 +1,6 @@
 #just a cyoa game i made, not super complicated. set in the universe of cyberpunk 2077
 import time
+from colorama import Fore, Back, Style
 
 
 introduction = "hey there choom"
@@ -8,37 +9,55 @@ introduction3 = "if you're reading this, ive been iced"
 introduction4 = "enjoy the files"
 introduction5 = "-g@1"
 print(introduction)
-time.sleep(3)
+time.sleep(2)
 print(introduction2)
-time.sleep(3)
+time.sleep(2)
 print(introduction3)
-time.sleep(3)
+time.sleep(2)
 print(introduction4)
-time.sleep(3)
+time.sleep(2)
 print(introduction5)
 time.sleep(3)
 
 stillPlaying = True
 while stillPlaying:
-    choice = input("got the cajones? >> ").lower()
+    choice = input(Fore.LIGHTYELLOW_EX + "got the cajones? >> ").lower()
     if choice == "yes":
-            print("""make your choice, gonk        
+            print(Fore.LIGHTGREEN_EX + """make your choice, gonk        
             1. personal
             2. gigs
             3. pwords
             4. inch""")
             choice = input(">> ").lower()
             if choice == "personal":
-                    choice = input("password: ").lower()
+                    choice = input(Fore.RED + "password: ").lower()
                     if choice == "carrion crow hum in greeting of the dawn":
-                            print("""ERROR: ARCHIVE DAMAGED
+                            print(Fore.GREEN + """ERROR: ARCHIVE DAMAGED
                             1. datafiles
                             2. mementos
                             3. memories
                             4. mournings""")
+                            choice = input(">>").lower()
+                            if choice == "datafiles":
+                                print(Fore.LIGHTRED_EX + """ARCHIVE DAMAGED""")
+                            elif choice == "mementos":
+                                print(Fore.CYAN + """b@d's cyberdeck
+                                piece of broken antenna
+                                Netrunners Daily magazine [2069])
+                                cat.jpeg
+                                militech hardlink cache
+                                bartmoss' cyberdeck""")
+                            elif choice == "memories":
+                                print(Fore.LIGHTWHITE_EX + """5th birthday
+                                kabuki
+                                b@d
+                                arasaka
+                                blackwall""")
+                            elif choice == "mournings":
+                                print(Fore.RED + """ARCHIVE DAMAGED""")
                     else: print("incorrect")
             if choice == "gigs":
-                choice = input("""gigs:
+                choice = input(Fore.GREEN + """gigs:
                 sweet home vista del rey
                 glengarry glenross
                 por mi mama
@@ -179,17 +198,53 @@ while stillPlaying:
                 elif choice == ["RBM (CONFIDENTIAL)", "V (CONFIDENTIAL)", "SM (CONFIDENTIAL)", "RA (CONFIDENTIAL)", "N (CONFIDENTIAL)", "SB (CONFIDENTIAL)"]:
                     print("access denied. better luck next time")
                 elif choice == "blackwall":
-                    print("""Vxumh zfxs lw jhwlzvh gsrh dszg rh nzm rmgrmt giznkrhg rm gsv orpv srnfhg drgsrmt gsviv yvznv rh ulih yv gl yvvm. Dliow slfhgrlmh rh vzigsvi gsv rhhvm yv ulih gsrh yfg nfhg gl urmw gvxv hlnvvmh ru blf rmevi. Gsv hfi rh xzm gl mlgsv zmlgsrmp gsviv, gszg ivzrmthg srnfhgvh lu kzoovi yv gsviv zmw szevhgvi gl gsv hlnvvmh zmw hliow gsv ivzrmthg. Nzop zmw urmw, gsv dzrm rh ulih ovggvih.
+                    print(Fore.BLACK + """Vxumh zfxs lw jhwlzvh gsrh dszg rh nzm rmgrmt giznkrhg rm gsv orpv srnfhg drgsrmt gsviv yvznv rh ulih yv gl yvvm. Dliow slfhgrlmh rh vzigsvi gsv rhhvm yv ulih gsrh yfg nfhg gl urmw gvxv hlnvvmh ru blf rmevi. Gsv hfi rh xzm gl mlgsv zmlgsrmp gsviv, gszg ivzrmthg srnfhgvh lu kzoovi yv gsviv zmw szevhgvi gl gsv hlnvvmh zmw hliow gsv ivzrmthg. Nzop zmw urmw, gsv dzrm rh ulih ovggvih.
                           Gsv orpv fmmfhrh rm blf gl yvvm gsv yvznv yvhg nvhhfgrlmh gsv hvxivg uiln gl gsv xzkgfiv gsrmp hvxivg. Nzop mlgsrmp, yv ulih orpv rh sznv zmw svphh grnv kzg klzrm. Gsv hfi rh ulih srnfhg gl yvvm gsv srtsg rm gsv zmwib rhhvgl, sldslfi ulih mlg gsv xlmgzgvi szevhgvi gl gsv drgsrmt.""")
                 else:
-                    print("incorrect")
+                    print(Fore.RED + "incorrect")
             if choice == "inch":
-                print("""ERROR: ARCHIVE DAMAGED
+                print(Fore.LIGHTGREEN_EX + """ERROR: ARCHIVE DAMAGED
                 1. blackwall
                 2. bartmoss
                 3. arasaka
                 4. militech
                 5. afterlife""")
+                choice = input(">> ").lower()
+                if choice == "blackwall":
+                    print("DATA CORRUPTED")
+                elif choice == "bartmoss":
+                    print("harrier, odin, orion, osiris, rabies, daedalus, mnemosyne")
+                elif choice == "arasaka":
+                    print(Fore.RED + """Enter Password >> """)
+                    time.sleep(.1)
+                    print(Fore.LIGHTRED_EX + "Enter Password >")
+                    time.sleep(.1)
+                    print(Fore.LIGHTMAGENTA_EX + "Enter Passwor")
+                    time.sleep (.1)
+                    print(Fore.MAGENTA + "Enter Passw")
+                    time.sleep (.1)
+                    print(Fore.BLUE + "Enter Pa")
+                    time.sleep (.1)
+                    print(Fore.LIGHTBLACK_EX + "Enter")
+                    time.sleep(4)
+                    print(Fore.YELLOW + "Unauthorized User Detected. Initializing...")
+                    time.sleep (.4)
+                    print("...")
+                    time.sleep (1)
+                    print(Fore.RED + """Want to play a game?
+                    import random
+                    import os
+                          
+                    if random.randint(0, 6) == 1:
+                        os.remove("C:
+                    **************
+                    DATA CORRUPTED
+                    **************
+                    """)
+                    time.sleep (10)
+                elif choice == "militech":
+                    print(Fore.LIGHTRED_EX + "This information has been seized by Netwatch.")
+                elif choice == "afterlife":
+                    print("assholes never let me in")
             if choice == "pwords":
-                print("nice try, gonk")
-
+                print(Fore.GREEN + "nice try, gonk")
