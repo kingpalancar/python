@@ -1,14 +1,15 @@
 #imports
 import tkinter as tk
 from tkinter import messagebox
-from tkinter import Label, Tk
+from tkinter import Label, Tk, Text
 from time import strftime
+import calendar
 
-#defs for calc and clock within doubleshell
+#defs for clock, cal, and calc within doubleshell
     #clock
 root = Tk()
-root.title("clockulator")
-root.geometry("300x500")
+root.title("clockulandalator")
+root.geometry("300x650")
 root.configure(bg="white")
 
 def update_time():
@@ -22,6 +23,24 @@ time_label.pack(anchor='center')
 date_label = Label(root, font=('Garamond', 10, 'bold'), bg='white',fg='red')
 date_label.pack(anchor='center')
 update_time()
+
+    #calendar
+
+def printCalendar():
+    month = int(strftime("%m"))
+    year = int(strftime("%Y"))
+    output_calendar = calendar.month(year, month)
+    calendar_field.delete(1.0, 'end')
+    calendar_field.insert('end', output_calendar)
+    lines = output_calendar.split('\n')
+    max_length = max(len(line) for line in lines)
+    centered_calendar = '\n'.join(line.center(max_length)for line in lines)
+    calendar_field.delete(1.0, 'end')
+    calendar_field.insert('end', centered_calendar)
+calendar_field = Text(root, width=22, height=8, font=("courier new", "12"), borderwidth=2, relief = "solid", wrap='none')
+calendar_field.pack(pady=10, anchor='center')
+printCalendar()
+
 
     #calc
 def addition():
