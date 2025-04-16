@@ -1,3 +1,6 @@
+#todo - add more operations to calculator, make into application
+#for the urlloader, just replace example sites with whatever sites you'd rather have as buttons
+
 #imports
 import tkinter as tk
 from tkinter import messagebox
@@ -5,12 +8,26 @@ from tkinter import Label, Tk, Text
 from time import strftime
 import calendar
 import random
+import webbrowser
 
-#window
+#main window
 root = Tk()
 root.title("almanac")
-root.geometry("500x660")
+root.geometry("500x700")
 root.configure(bg="white")
+
+#urlloader definitions
+def cisaloader():
+    webbrowser.open('https://www.cisa.gov/')
+def msnbcloader():
+    webbrowser.open('https://www.msnbc.com/')
+def cnnloader():
+    webbrowser.open('https://www.cnn.com/')
+def sp500loader():
+    webbrowser.open('https://markets.businessinsider.com/index/s&p_500?op=1')
+def weatherloader():
+    webbrowser.open('https://weather.com/')
+
 
 #fortune dict
 fortune = {
@@ -66,7 +83,7 @@ fortune = {
     "fortune50": "The universe conspires in your favor—act with confidence."
 }
 
-            #defs for clock, cal, and calc within almanac
+            #defs for clock, cal, fortune, urls, and calc within almanac
 #clock
 def update_time():
     current_time = strftime('%H:%M %p')
@@ -174,5 +191,17 @@ multiplication_label = tk.Label(root, bg="#ffffff", font=("Georgia", 12), text="
 multiplication_label.pack()
 division_label = tk.Label(root, bg="#ffffff", font=("Georgia", 12), text="Quot: ", fg="#000000")
 division_label.pack()
+
+#urlloader buttons
+cisa_button = tk.Button(root, text="CISA", font=("Garamond", 12), command=cisaloader)
+cisa_button.pack(padx=8, side='right')
+msnbc_button = tk.Button(root, text="MSNBC", font=("Garamond", 12), command=msnbcloader)
+msnbc_button.pack(padx=2, side='right')
+cnn_button = tk.Button(root, text="CNN", font=("Garamond", 12), command=cnnloader)
+cnn_button.pack(padx=8, side='left')
+weather_button = tk.Button(root, text="Weather", font=("Garamond", 12), command=weatherloader)
+weather_button.pack(padx=2, side='left')
+sp500_button = tk.Button(root, text="S&P 500", font=("Garamond", 12), command=sp500loader)
+sp500_button.pack(pady= 7, anchor='center')
 
 root.mainloop()
