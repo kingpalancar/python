@@ -1,21 +1,17 @@
-#todo - add more operations to calculator, make into application
 #for the urlloader, just replace example sites with whatever sites you'd rather have as buttons
-
 #imports
 import tkinter as tk
 from tkinter import messagebox
-from tkinter import Label, Tk, Text
+from tkinter import *
 from time import strftime
 import calendar
 import random
 import webbrowser
-
 #main window
 root = Tk()
 root.title("almanac")
 root.geometry("500x700")
-root.configure(bg="white")
-
+root.configure(bg="#eef79b")
 #urlloader definitions
 def cisaloader():
     webbrowser.open('https://www.cisa.gov/')
@@ -27,8 +23,6 @@ def sp500loader():
     webbrowser.open('https://markets.businessinsider.com/index/s&p_500?op=1')
 def weatherloader():
     webbrowser.open('https://weather.com/')
-
-
 #fortune dict
 fortune = {
     "fortune1": "A sudden opportunity will arise—seize it before the moon wanes.",
@@ -82,8 +76,7 @@ fortune = {
     "fortune49": "A stranger’s words hold the key to a puzzle.",
     "fortune50": "The universe conspires in your favor—act with confidence."
 }
-
-            #defs for clock, cal, fortune, urls, and calc within almanac
+#defs for clock, cal, fortune, urls, and calc within almanac
 #clock
 def update_time():
     current_time = strftime('%H:%M %p')
@@ -91,20 +84,18 @@ def update_time():
     time_label.config(text=current_time)
     date_label.config(text=current_date)
     root.after(1000, update_time)
-time_label = Label(root, font=('Garamond', 20, 'bold'), bg="white", fg="red")
+time_label = Label(root, font=('Garamond', 20, 'bold'), bg="#eef79b", fg="red")
 time_label.pack(anchor='center')
-date_label = Label(root, font=('Garamond', 10, 'bold'), bg='white',fg='red')
+date_label = Label(root, font=('Garamond', 10, 'bold'), bg='#eef79b',fg='red')
 date_label.pack(anchor='center')
 update_time()
-
 #fortuneteller
 def fortuneteller():
     random_fortune = random.choice(list(fortune.values()))
     fortune_label.config(text=random_fortune)
-fortune_label = Label(root, font=('Garamond', 10, 'bold'), bg='white', fg='#7905ff')
+fortune_label = Label(root, font=('Garamond', 10, 'bold'), bg='#eef79b', fg='#7905ff')
 fortune_label.pack(anchor='center')
 fortuneteller()
-
 #calendar
 def printCalendar():
     month = int(strftime("%m"))
@@ -117,11 +108,9 @@ def printCalendar():
     centered_calendar = '\n'.join(line.center(max_length)for line in lines)
     calendar_field.delete(1.0, 'end')
     calendar_field.insert('end', centered_calendar)
-calendar_field = Text(root, width=22, height=8, font=("courier new", "12"), borderwidth=2, relief = "solid", wrap='none')
+calendar_field = Text(root, width=22, bg="#eef79b", height=8, font=("courier new", "12"), borderwidth=2, relief = "solid", wrap='none')
 calendar_field.pack(pady=10, anchor='center')
 printCalendar()
-
-
 #calculator
     #addition operation
 def addition():
@@ -132,7 +121,6 @@ def addition():
         addition_label.config(text=f"Sum: {addition}", font=("Georgia", 12), fg="#000000")
     except ValueError:
         messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
-        
     #subtraction operation
 def subtraction():
     try:
@@ -142,7 +130,6 @@ def subtraction():
         subtraction_label.config(text=f"Sub: {subtraction}", font=("Georgia", 12), fg="#000000")
     except ValueError:
         messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
-
     #multiplication operation        
 def multiplication():
     try:
@@ -151,8 +138,7 @@ def multiplication():
         multiplication = num1 * num2
         multiplication_label.config(text=f"Prod: {multiplication}", font=("Georgia", 12), fg="#000000")
     except ValueError:
-        messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
-        
+        messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000") 
     #division operation
 def division():
     try:
@@ -162,16 +148,13 @@ def division():
         division_label.config(text=f"Quot: {division}", font=("Georgia", 12), fg="#000000")
     except ValueError:
         messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
-
-
     #user input boxes (entryx.get definitions)
-tk.Label(root, text="First number:", bg="#ffffff", font=("Georgia", 12)).pack()
+tk.Label(root, text="First number:", bg="#eef79b", font=("Georgia", 12)).pack()
 entry1 = tk.Entry(root)
 entry1.pack()
-tk.Label(root, text="Second number:", bg="#ffffff", font=("Georgia", 12)).pack()
+tk.Label(root, text="Second number:", bg="#eef79b", font=("Georgia", 12)).pack()
 entry2 = tk.Entry(root)
 entry2.pack()
-
     #individual buttons for four operation definitions
 calculate_button = tk.Button(root, text="Add", font=("Georgia", 12), command=addition, bg="#ffffff", fg="#5ae129")
 calculate_button.pack(pady=10)
@@ -181,17 +164,15 @@ calculate_button = tk.Button(root, text="Divide", font=("Georgia", 12), command=
 calculate_button.pack(pady=10)
 calculate_button = tk.Button(root, text="Multiply", font=("Georgia", 12), command=multiplication, bg="#ffffff", fg="#5ae129")
 calculate_button.pack(pady=10)
-
     #show individual outputs for each operation definition
-addition_label = tk.Label(root, bg="#ffffff", font=("Georgia", 12), text="Sum: ", fg="#000000")
+addition_label = tk.Label(root, bg="#eef79b", font=("Georgia", 12), text="Sum: ", fg="#000000")
 addition_label.pack()
-subtraction_label = tk.Label(root, bg="#ffffff", font=("Georgia", 12), text="Sub: ", fg="#000000")
+subtraction_label = tk.Label(root, bg="#eef79b", font=("Georgia", 12), text="Sub: ", fg="#000000")
 subtraction_label.pack()
-multiplication_label = tk.Label(root, bg="#ffffff", font=("Georgia", 12), text="Prod: ", fg="#000000")
+multiplication_label = tk.Label(root, bg="#eef79b", font=("Georgia", 12), text="Prod: ", fg="#000000")
 multiplication_label.pack()
-division_label = tk.Label(root, bg="#ffffff", font=("Georgia", 12), text="Quot: ", fg="#000000")
+division_label = tk.Label(root, bg="#eef79b", font=("Georgia", 12), text="Quot: ", fg="#000000")
 division_label.pack()
-
 #urlloader buttons
 cisa_button = tk.Button(root, text="CISA", font=("Garamond", 12), command=cisaloader)
 cisa_button.pack(padx=8, side='right')
