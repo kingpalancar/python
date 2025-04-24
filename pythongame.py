@@ -20,6 +20,27 @@ pay: 200 ed
 solo
 wrote a script that upgraded the dl/ul for the neighborhood so i could download mi madre's favorite movie in time for her birthday. te amo, no acentual
 pay: nada
+""",#imports
+import time
+from colorama import Fore, Back, Style
+import tkinter as tk 
+from tkinter import *
+#giglib
+gigs = {
+     "sweet home vista del rey":"""2067
+solo
+fixed a commdish that was borked big time. first ever experience netrunning, lol
+pay: 50 ed
+""",
+     "glengarry glenross":"""2067
+solo
+did some work fixing a security issue in a valentinos vending machine system--thirty installments in total. padre said i had a gift for netrunning (do i?)
+pay: 200 ed
+""",
+     "por mi mama":"""2068
+solo
+wrote a script that upgraded the dl/ul for the neighborhood so i could download mi madre's favorite movie in time for her birthday. te amo, no acentual
+pay: nada
 """,
      "the well":"""2068
 solo
@@ -125,19 +146,19 @@ root.configure(bg="#eef79b")
 def perdef():
         perwin=Tk()
         perwin.title("Personal")
-        perwin.geometry("200x220")
+        perwin.geometry("200x220+370+84")
         perwin.configure(bg="#eef79b")
         def dadef():
                 dawin=Tk()
                 dawin.title("Datafiles")
-                dawin.geometry("300x50")
+                dawin.geometry("220x50+590+84")
                 dawin.configure(bg="#eef79b")
                 dalab=tk.Label(dawin, text="ARCHIVE DAMAGED", font=("Quicksand", 16, 'bold'), fg="red", bg="#eef79d")
                 dalab.pack()
         def memdef():
                 memwin=Tk()
                 memwin.title("Memories")
-                memwin.geometry("150x150")
+                memwin.geometry("220x150+590+184")
                 memwin.configure(bg="#eef79b")
                 memlab=tk.Label(memwin, text="""5th birthday
 kabuki
@@ -148,7 +169,7 @@ blackwall""", font=("Quicksand", 14,), bg="#eef79d", fg="black")
         def memdef2():
                 memwin2=Tk()
                 memwin2.title("Mementos")
-                memwin2.geometry("310x175")
+                memwin2.geometry("310x175+830+84")
                 memwin2.configure(bg="#eef79d")
                 memlab2=tk.Label(memwin2, text="""b@d cyberdeck
 piece of broken antenna
@@ -160,7 +181,7 @@ bartmoss cyberdeck""",  font=("Quicksand", 14), bg="#eef79d")
         def moudef():
                 mouwin=Tk()
                 mouwin.title("Mournings")
-                mouwin.geometry("200x50")
+                mouwin.geometry("200x40+830+300")
                 mouwin.configure(bg="#eef79d")
                 moulab=tk.Label(mouwin, text="ARCHIVE DAMAGED", font=("Quicksand", 14, 'bold'), bg="#eef79d", fg="red")
                 moulab.pack()
@@ -176,7 +197,7 @@ bartmoss cyberdeck""",  font=("Quicksand", 14), bg="#eef79d")
 def gdef():
         gwin=Tk()
         gwin.title("Gigs")
-        gwin.geometry("650x600")
+        gwin.geometry("650x600+50+400")
         gwin.configure(bg="#eef79b")
         glab=tk.Label(gwin, text="""ENTER A FILE NAME FROM THE FOLLOWING LIST::
 sweet home vista del rey, glengarry glenross, por mi mama
@@ -189,13 +210,13 @@ SM (Confidential)
 RA (Confidential)
 N (Confidential)
 SB (Confidential)
-blackwall""", font=("Quicksand", 14), bg="#eef79d")
+blackwall""", font=("Quicksand", 14, 'bold'), bg="#eef79d")
         glab.pack()
         entry1 = tk.Entry(gwin)
         entry1.pack()
         def seadef():
                 key_to_find = entry1.get().strip()
-                output.delete(1.0, END)
+                output.delete(1.0, END)  # Clear previous content
                 try:
                         result = gigs[key_to_find]
                         output.insert(END, str(result))
@@ -210,12 +231,12 @@ blackwall""", font=("Quicksand", 14), bg="#eef79d")
 def incdef():
         incwin=Tk()
         incwin.title("Interesting")
-        incwin.geometry("300x270")
+        incwin.geometry("300x270+710+400")
         incwin.configure(bg="#eef79b")
         def bladef():
                 blawin=Tk()
                 blawin.title("Blackwall")
-                blawin.geometry("300x50")
+                blawin.geometry("300x40+1015+570")
                 blawin.configure(bg="green")
                 blalab=tk.Label(blawin, text="DATA CORRUPTED", font=("Constantia", 20, 'bold'), bg="green", fg="red")
                 blalab.pack(anchor='center')
@@ -223,7 +244,7 @@ def incdef():
         def bardef():
                 barwin=Tk()
                 barwin.title("Bartmoss")
-                barwin.geometry("200x200")
+                barwin.geometry("200x200+710+720")
                 barwin.configure(bg="#eef79b")
                 barlab=tk.Label(barwin, text="""
 harrier
@@ -239,7 +260,7 @@ mnemosyne""", font=("Quicksand", 14), bg="#eef79b"
         def aradef():
                 arawin=Tk()
                 arawin.title("Arasaka")
-                arawin.geometry("200x50")
+                arawin.geometry("200x50+1015+400")
                 arawin.configure(bg="#eef79b")
                 aralab=tk.Label(arawin, text="ARCHIVE DAMAGED", font=("Quicksand", 14, 'bold'), bg="#eef79d")
                 aralab.pack()
@@ -247,38 +268,38 @@ mnemosyne""", font=("Quicksand", 14), bg="#eef79b"
         def mildef():
                 milwin=Tk()
                 milwin.title("Militech")
-                milwin.geometry("500x30")
+                milwin.geometry("500x30+1015+650")
                 milwin.configure(bg="black")
                 millab=tk.Label(milwin, text="This information has been seized by Netwatch.", font=("Quicksand", 14, 'bold'), bg="black", fg="green")
                 millab.pack()
         def aftdef():
                 aftwin=Tk()
                 aftwin.title("Afterlife")
-                aftwin.geometry("250x40")
+                aftwin.geometry("250x40+1015+490")
                 aftwin.configure(bg="#eef79b")
                 aftlab=tk.Label(aftwin, text="assholes never let me in", font=("Quicksand", 14, 'bold'), bg="#eef79b", fg="black")
                 aftlab.pack()
 ##inch buttons
+        arabut=tk.Button(incwin, text="Arasaka", font=("Constantia", 12), command=aradef, bg="#ffffff", fg="#5ae129")
+        arabut.pack(pady=10)
+        aftbut=tk.Button(incwin, text="Afterlife", font=("Constantia", 12), command=aftdef, bg="#ffffff", fg="#5ae129")
+        aftbut.pack(pady=10)
         blabut=tk.Button(incwin, text="Blackwall", font=("Constantia", 12), command=bladef, bg="#ffffff", fg="#5ae129")
         blabut.pack(pady=10)
         barbut=tk.Button(incwin, text="Bartmoss", font=("Constantia", 12), command=bardef, bg="#ffffff", fg="#5ae129")
         barbut.pack(pady=10)
-        arabut=tk.Button(incwin, text="Arasaka", font=("Constantia", 12), command=aradef, bg="#ffffff", fg="#5ae129")
-        arabut.pack(pady=10)
         milbut=tk.Button(incwin, text="Militech", font=("Constantia", 12), command=mildef, bg="#ffffff", fg="#5ae129")
         milbut.pack(pady=10)
-        aftbut=tk.Button(incwin, text="Afterlife", font=("Constantia", 12), command=aftdef, bg="#ffffff", fg="#5ae129")
-        aftbut.pack(pady=10)
         incwin.mainloop()
-#pwodef
 def pwodef():
         pwowin=Tk()
         pwowin.title("Passwords")
-        pwowin.geometry("250x50")
+        pwowin.geometry("250x50+1200+100")
         pwowin.configure(bg="#eef79b")
         pwolab=tk.Label(pwowin, text="nice try, gonk", font=("Constantia", 18, 'bold'), bg="#eef79b", fg="black")
         pwolab.pack()
         pwowin.mainloop()
+
 ##buttons for the first window
 perbut=tk.Button(root, text="personal", font=("Constantia", 12), command=perdef, bg="#ffffff", fg="#5ae129")
 perbut.pack(pady=10)
@@ -288,7 +309,6 @@ incwin=tk.Button(root, text="inch", font=("Constantia", 12), command=incdef, bg=
 incwin.pack(pady=10)
 pwowin=tk.Button(root, text="pwords", font=("Constantia", 12), command=pwodef, bg="#ffffff", fg="#5ae129")
 pwowin.pack(pady=10)
-
 
 root.mainloop()
 
