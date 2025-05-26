@@ -4,7 +4,7 @@ from tkinter import *
 import time
 #notepad window structure
 root = Tk()
-root.title("Iris")
+root.title("Clio")
 root.geometry("400x700")
 root.configure(bg="#ffb0f3")
 entry = tk.Text(bg="white", fg="black", wrap="word", font=("Constantia", "12")) 
