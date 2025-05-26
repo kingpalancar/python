@@ -1,6 +1,7 @@
 #for the urlloader, just replace example sites with whatever sites you'd rather have as buttons
 #imports
 import tkinter as tk
+from subprocess import Popen
 from tkinter import messagebox
 from tkinter import *
 from time import strftime
@@ -10,7 +11,7 @@ import webbrowser
 #main window
 root = Tk()
 root.title("almanac")
-root.geometry("500x700")
+root.geometry("500x800")
 root.configure(bg="#eef79b")
 #urlloader definitions
 def cisaloader():
@@ -148,6 +149,26 @@ def division():
         division_label.config(text=f"Quot: {division}", font=("Georgia", 12), fg="#000000")
     except ValueError:
         messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+def clio():
+    win = Tk()
+    win.title("Clio")
+    win.geometry("400x700")
+    win.configure(bg="#ffb0f3")
+    entry = tk.Text(win, bg="white", fg="black", wrap="word", font=("Constantia", "12")) 
+    entry.place(x=10, y=90, width=380, height=600) 
+    entry.focus()
+    #notepad def
+    def test():
+        x = entry.get("1.0", "end-1c")
+        with open("Notes.txt", "a") as file:
+            file.write(x + "\n") 
+        saved = tk.Label(win, text="Saved!", bg="white")
+        saved.config(text="Saved!")
+        saved.place(x=200, y=650)
+#save button
+    save_button = tk.Button(win, text="Save", font=("Georgia", 12), command=test, bg="#ffb0f3", fg="#f44848")
+    save_button.pack(pady=50)
+    win.mainloop()
     #user input boxes (entryx.get definitions)
 tk.Label(root, text="First number:", bg="#eef79b", font=("Georgia", 12)).pack()
 entry1 = tk.Entry(root)
@@ -182,7 +203,9 @@ cnn_button = tk.Button(root, text="CNN", font=("Garamond", 12), command=cnnloade
 cnn_button.pack(padx=8, side='left')
 weather_button = tk.Button(root, text="Weather", font=("Garamond", 12), command=weatherloader)
 weather_button.pack(padx=2, side='left')
+clio = tk.Button(root, text="Clio", font=("Garamond", 12), command=clio)
+clio.pack(pady= 7, anchor='center')
 sp500_button = tk.Button(root, text="S&P 500", font=("Garamond", 12), command=sp500loader)
-sp500_button.pack(pady= 7, anchor='center')
+sp500_button.pack(pady= 0, anchor='center')
 
 root.mainloop()
