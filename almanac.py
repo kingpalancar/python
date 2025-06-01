@@ -1,7 +1,6 @@
 #for the urlloader, just replace example sites with whatever sites you'd rather have as buttons
 #imports
 import tkinter as tk
-from subprocess import Popen
 from tkinter import messagebox
 from tkinter import *
 from time import strftime
