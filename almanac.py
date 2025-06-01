@@ -123,8 +123,8 @@ printCalendar()
 def calculator():
     calc = Tk()
     calc.title("Calculator")
-    calc.geometry("2000x470")
-    calc.configure(bg="#53be25")
+    calc.geometry("570x470")
+    calc.configure(bg="#d8f965")
     #calculator
     #operations
     def addition():
@@ -132,198 +132,213 @@ def calculator():
             num1 = float(entry1.get())
             num2 = float(entry2.get())
             addition = num1 + num2
-            addition_label.config(text=f"Sum: {addition}", font=("Georgia", 12), fg="#000000")
+            addition_label.config(text=f"Sum: {addition}", font=("Georgia", 12), fg="#bba10b")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#bba10b")
     def subtraction():
         try:
             num1 = float(entry1.get())
             num2 = float(entry2.get())
             subtraction = num1 - num2
-            subtraction_label.config(text=f"Sub: {subtraction}", font=("Georgia", 12), fg="#000000")
+            subtraction_label.config(text=f"Sub: {subtraction}", font=("Georgia", 12), fg="#5e0bbb")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")      
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#5e0bbb")      
     def multiplication():
         try:
             num1 = float(entry1.get())
             num2 = float(entry2.get())
             multiplication = num1 * num2
-            multiplication_label.config(text=f"Prod: {multiplication}", font=("Georgia", 12), fg="#000000")
+            multiplication_label.config(text=f"Prod: {multiplication}", font=("Georgia", 12), fg="#bb2d0b")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000") 
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#bb2d0b") 
     def division():
         try:
             num1 = float(entry1.get())
             num2 = float(entry2.get())
             division = num1 / num2
-            division_label.config(text=f"Quot: {division}", font=("Georgia", 12), fg="#000000")
+            division_label.config(text=f"Quot: {division}", font=("Georgia", 12), fg="#7b2d90")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#7b2d90")
     def factorial():
         try:
             num1 = int(entry1.get())
             factorial = math.factorial(num1)
-            factorial_label.config(text=f"Fact: {factorial}", font=("Georgia", 12), fg="#000000")
+            factorial_label.config(text=f"Fact: {factorial}", font=("Georgia", 12), fg="#68a24e")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg= "#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg= "#68a24e")
     def sqrt():
         try:
             num1 = int(entry1.get())
             sqrt = math.sqrt(num1)
-            sqrt_label.config(text=f"Sqrt: {sqrt}", font=("Georgia", 12), fg="#000000")
+            sqrt_label.config(text=f"Sqrt: {sqrt}", font=("Georgia", 12), fg="#c33f74")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg= "#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg= "#c33f74")
     def ceil():
         try:
             num1 = int(entry1.get())
             ceil = math.ceil(num1)
-            ceiling_label.config(text=f"Ceil: {ceil}", font=("Georgia", 12), fg="#000000")
+            ceiling_label.config(text=f"Ceil: {ceil}", font=("Georgia", 12), fg="#a0e669")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#a0e669")
     def floor():
         try:
             num1 = int(entry1.get())
             floor = math.floor(num1)
-            floor_label.config(text=f"Floor: {floor}", font=("Georgia", 12), fg="#000000")
+            floor_label.config(text=f"Floor: {floor}", font=("Georgia", 12), fg="#785db7")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#785db7")
     def fabs():
         try:
             num1 = int(entry1.get())
             fabs = math.fabs(num1)
-            absolute_label.config(text=f"Abso: {fabs}", font=("Georgia", 12), fg="#000000")
+            absolute_label.config(text=f"Abso: {fabs}", font=("Georgia", 12), fg="#52daa0")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#52daa0")
     def remainder():
         try:
             num1 = int(entry1.get())
             num2 = int(entry2.get())
             remainder = math.remainder(num1, num2)
-            remainder_label.config(text=f"Rem: {remainder}", font=("Georgia", 12), fg="#000000")
+            remainder_label.config(text=f"Rem: {remainder}", font=("Georgia", 12), fg="#dee0ab")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#dee0ab")
     def exp2():
         try:
             num1 = int(entry1.get())
             exp2 = math.exp2(num1)
-            exp2_label.config(text=f"Exp2: {exp2}", font=("Georgia", 12), fg="#000000")
+            exp2_label.config(text=f"Exp2: {exp2}", font=("Georgia", 12), fg="#d0179a")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#d0179a")
     def deg():
         try:
             num1 = int(entry1.get())
             deg = math.degrees(num1)
-            deg_label.config(text=f"Degr: {deg}", font=("Georgia", 12), fg="#000000")
+            deg_label.config(text=f"Degr: {deg}", font=("Georgia", 12), fg="#00ffff")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#00ffff")
     def rad():
         try:
             num1 = int(entry1.get())
             rad = math.radians(num1)
-            rad_label.config(text=f"Rads: {rad}", font=("Georgia", 12), fg="#000000")
+            rad_label.config(text=f"Rads: {rad}", font=("Georgia", 12), fg="#7860dc")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#7860dc")
     def cos():
         try:
             num1 = int(entry1.get())
             cos = math.cos(num1)
-            cos_label.config(text=f"Cos: {cos}", font=("Georgia", 12), fg="#000000")
+            cos_label.config(text=f"Cos: {cos}", font=("Georgia", 12), fg="#ceabbd")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#ceabbd")
     def sin():
         try:
             num1 = int(entry1.get())
             sin = math.sin(num1)
-            sin_label.config(text=f"Sin: {sin}", font=("Georgia", 12), fg="#000000")
+            sin_label.config(text=f"Sin: {sin}", font=("Georgia", 12), fg="#3ea21c")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#3ea21c")
     def tan():
         try:
             num1 = int(entry1.get())
             tan = math.tan(num1)
-            tan_label.config(text=f"Tan: {tan}", font=("Georgia", 12), fg="#000000")
+            tan_label.config(text=f"Tan: {tan}", font=("Georgia", 12), fg="#d1ff00")
         except ValueError:
-            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#000000")
+            messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#d1ff00")
     #user input
-    tk.Label(calc, text="First number:", bg="#53be25", font=("Georgia", 12)).pack()
+    tk.Label(calc, text="First number:", bg="#d8f965", font=("Georgia", 12)).pack()
     entry1 = tk.Entry(calc)
     entry1.pack()
-    tk.Label(calc, text="Second number:", bg="#53be25", font=("Georgia", 12)).pack()
+    tk.Label(calc, text="Second number:", bg="#d8f965", font=("Georgia", 12)).pack()
     entry2 = tk.Entry(calc)
     entry2.pack()
     #individual buttons for operation definitions
-    calculate_button = tk.Button(calc, text="Root", font=("Georgia", 12), command=sqrt, bg= "#ffffff", fg= "#53be25")
-    calculate_button.pack(pady = 10, padx=8, side='left')
-    calculate_button = tk.Button(calc, text="Add", font=("Georgia", 12), command=addition, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=8, side='right')
-    calculate_button = tk.Button(calc, text="Factorial",font=("Georgia", 12), command=factorial, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=2, side='right')
-    calculate_button = tk.Button(calc, text="Subtract", font=("Georgia", 12), command=subtraction, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=2, side='right')
-    calculate_button = tk.Button(calc, text="Divide", font=("Georgia", 12), command=division, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=8, side='left')
-    calculate_button = tk.Button(calc, text="Multiply", font=("Georgia", 12), command=multiplication, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=2, side='left')
-    calculate_button = tk.Button(calc, text="Ceil", font=("Georgia", 12), command=ceil, bg= "#ffffff", fg= "#53be25")
-    calculate_button.pack(pady = 10, padx=8, side='left')
-    calculate_button = tk.Button(calc, text="Floor", font=("Georgia", 12), command=floor, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=8, side='right')
-    calculate_button = tk.Button(calc, text="Absolute",font=("Georgia", 12), command=fabs, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=2, side='right')
-    calculate_button = tk.Button(calc, text="Remainder", font=("Georgia", 12), command=remainder, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=2, side='right')
-    calculate_button = tk.Button(calc, text="Exp2", font=("Georgia", 12), command=exp2, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=8, side='left')
-    calculate_button = tk.Button(calc, text="Degrees", font=("Georgia", 12), command=deg, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=2, side='left')
-    calculate_button = tk.Button(calc, text="Radians", font=("Georgia", 12), command=rad, bg= "#ffffff", fg= "#53be25")
-    calculate_button.pack(pady = 10, padx=8, side='left')
-    calculate_button = tk.Button(calc, text="Cosine", font=("Georgia", 12), command=cos, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=8, side='right')
-    calculate_button = tk.Button(calc, text="Sine", font=("Georgia", 12), command=sin, bg= "#ffffff", fg= "#53be25")
-    calculate_button.pack(pady = 10, padx=8, side='left')
-    calculate_button = tk.Button(calc, text="Tangent", font=("Georgia", 12), command=tan, bg="#ffffff", fg="#53be25")
-    calculate_button.pack(pady=10, padx=8, side='right')
+    calculate_button = tk.Button(calc, text="Root", font=("Georgia", 12), command=sqrt, fg= "#ffffff", bg= "#c33f74")
+    calculate_button.pack(pady = 10, padx=8)
+    calculate_button.place(x=10, y=10)
+    calculate_button = tk.Button(calc, text="Add", font=("Georgia", 12), command=addition, fg="#ffffff", bg="#bba10b")
+    calculate_button.pack(pady=10, padx=8)
+    calculate_button.place(x=440, y=210)
+    calculate_button = tk.Button(calc, text="Factorial",font=("Georgia", 12), command=factorial, fg="#ffffff", bg="#68a24e")
+    calculate_button.pack(pady=10, padx=2)
+    calculate_button.place(x=440, y=260)
+    calculate_button = tk.Button(calc, text="Subtract", font=("Georgia", 12), command=subtraction, fg="#ffffff", bg="#5e0bbb")
+    calculate_button.pack(pady=10, padx=2)
+    calculate_button.place(x=440, y=310)
+    calculate_button = tk.Button(calc, text="Divide", font=("Georgia", 12), command=division, fg="#ffffff", bg="#7b2d90")
+    calculate_button.pack(pady=10, padx=8)
+    calculate_button.place(x=10, y=60)
+    calculate_button = tk.Button(calc, text="Multiply", font=("Georgia", 12), command=multiplication, fg="#ffffff", bg="#bb2d0b")
+    calculate_button.pack(pady=10, padx=2)
+    calculate_button.place(x=10, y=110)
+    calculate_button = tk.Button(calc, text="Ceil", font=("Georgia", 12), command=ceil, fg= "#ffffff", bg= "#28b561")
+    calculate_button.pack(pady = 10, padx=8)
+    calculate_button.place(x=10, y=160)
+    calculate_button = tk.Button(calc, text="Floor", font=("Georgia", 12), command=floor, fg="#ffffff", bg="#785db7")
+    calculate_button.pack(pady=10, padx=8)
+    calculate_button.place(x=440, y=10)
+    calculate_button = tk.Button(calc, text="Absolute",font=("Georgia", 12), command=fabs, fg="#ffffff", bg="#52daa0")
+    calculate_button.pack(pady=10, padx=2)
+    calculate_button.place(x=440, y=160)
+    calculate_button = tk.Button(calc, text="Remainder", font=("Georgia", 12), command=remainder, fg="#ffffff", bg="#b5a128")
+    calculate_button.pack(pady=10, padx=2)
+    calculate_button.place(x=440, y=110)
+    calculate_button = tk.Button(calc, text="Exp2", font=("Georgia", 12), command=exp2, fg="#ffffff", bg="#d0179a")
+    calculate_button.pack(pady=10, padx=8)
+    calculate_button.place(x=10, y=210)
+    calculate_button = tk.Button(calc, text="Degrees", font=("Georgia", 12), command=deg, fg="#ffffff", bg="#3fc9c6")
+    calculate_button.pack(pady=10, padx=2)
+    calculate_button.place(x=10, y=260)
+    calculate_button = tk.Button(calc, text="Radians", font=("Georgia", 12), command=rad, fg= "#ffffff", bg= "#7860dc")
+    calculate_button.pack(pady = 10, padx=8)
+    calculate_button.place(x=10, y=310)
+    calculate_button = tk.Button(calc, text="Cosine", font=("Georgia", 12), command=cos, fg="#ffffff", bg="#ceabbd")
+    calculate_button.pack(pady=10, padx=8)
+    calculate_button.place(x=440, y=360)
+    calculate_button = tk.Button(calc, text="Sine", font=("Georgia", 12), command=sin, fg= "#ffffff", bg= "#3ea21c")
+    calculate_button.pack(pady = 10, padx=8)
+    calculate_button.place(x=10, y=360)
+    calculate_button = tk.Button(calc, text="Tangent", font=("Georgia", 12), command=tan, fg="#ffffff", bg="#6128b5")
+    calculate_button.pack(pady=10, padx=8)
+    calculate_button.place(x=440, y=60)
     #show individual outputs for each operation definition
-    addition_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Sum: ", fg="#000000")
+    addition_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Sum: ", fg="#000000")
     addition_label.pack()
-    subtraction_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Sub: ", fg="#000000")
+    subtraction_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Sub: ", fg="#000000")
     subtraction_label.pack()
-    multiplication_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Prod: ", fg="#000000")
+    multiplication_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Prod: ", fg="#000000")
     multiplication_label.pack()
-    division_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Quot: ", fg="#000000")
+    division_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Quot: ", fg="#000000")
     division_label.pack()
-    factorial_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Fact: ", fg="#000000")
+    factorial_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Fact: ", fg="#000000")
     factorial_label.pack()
-    sqrt_label = tk.Label(calc, bg="#53be25", font= ("Georgia", 12), text= "Sqrt: ", fg="#000000")
+    sqrt_label = tk.Label(calc, bg="#d8f965", font= ("Georgia", 12), text= "Sqrt: ", fg="#000000")
     sqrt_label.pack()
-    ceiling_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Ceil: ", fg="#000000")
+    ceiling_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Ceil: ", fg="#000000")
     ceiling_label.pack()
-    floor_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Floor: ", fg="#000000")
+    floor_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Floor: ", fg="#000000")
     floor_label.pack()
-    absolute_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Abso: ", fg="#000000")
+    absolute_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Abso: ", fg="#000000")
     absolute_label.pack()
-    remainder_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Rema: ", fg="#000000")
+    remainder_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Rema: ", fg="#000000")
     remainder_label.pack()
-    exp2_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Exp2: ", fg="#000000")
+    exp2_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Exp2: ", fg="#000000")
     exp2_label.pack()
-    deg_label = tk.Label(calc, bg="#53be25", font= ("Georgia", 12), text= "Deg: ", fg="#000000")
+    deg_label = tk.Label(calc, bg="#d8f965", font= ("Georgia", 12), text= "Deg: ", fg="#000000")
     deg_label.pack()
-    rad_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Rads: ", fg="#000000")
+    rad_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Rads: ", fg="#000000")
     rad_label.pack()
-    cos_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Cos: ", fg="#000000")
+    cos_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Cos: ", fg="#000000")
     cos_label.pack()
-    sin_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Sin: ", fg="#000000")
+    sin_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Sin: ", fg="#000000")
     sin_label.pack()
-    tan_label = tk.Label(calc, bg="#53be25", font=("Georgia", 12), text="Tan: ", fg="#000000")
+    tan_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Tan: ", fg="#000000")
     tan_label.pack()
 
 
 
 
     calc.mainloop()
-
-calculator_button = tk.Button(root, text="Calculator", font=("Georgia", 12), command=calculator, bg="#ffffff", fg="#5ae129")
+calculator_button = tk.Button(root, text="Calculator", font=("Georgia", 12), command=calculator)
 calculator_button.pack(pady=10)
 
     #clio
