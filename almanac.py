@@ -8,13 +8,14 @@ import calendar
 import random
 import webbrowser
 import math
-
+from tkinter.filedialog import askopenfilename
+from pydub import AudioSegment
+from pydub.playback import play
 #main window
 root = Tk()
 root.title("almanac")
-root.geometry("500x440")
+root.geometry("500x470")
 root.configure(bg="#eef79b")
-
 #urlloader definitions
 def cisaloader():
     webbrowser.open('https://www.cisa.gov/')
@@ -26,7 +27,6 @@ def sp500loader():
     webbrowser.open('https://markets.businessinsider.com/index/s&p_500?op=1')
 def weatherloader():
     webbrowser.open('https://weather.com/')
-
 #fortune dict
 fortune = {
     "fortune1": "A sudden opportunity will arise—seize it before the moon wanes.",
@@ -93,7 +93,6 @@ time_label.pack(anchor='center')
 date_label = Label(root, font=('Garamond', 10, 'bold'), bg='#eef79b',fg='red')
 date_label.pack(anchor='center')
 update_time()
-
 #fortuneteller
 def fortuneteller():
     random_fortune = random.choice(list(fortune.values()))
@@ -101,7 +100,6 @@ def fortuneteller():
 fortune_label = Label(root, font=('Garamond', 10, 'bold'), bg='#eef79b', fg='#7905ff')
 fortune_label.pack(anchor='center')
 fortuneteller()
-
 #calendar
 def printCalendar():
     month = int(strftime("%m"))
@@ -117,7 +115,6 @@ def printCalendar():
 calendar_field = Text(root, width=22, bg="#eef79b", height=8, font=("courier new", "12"), borderwidth=2, relief = "solid", wrap='none')
 calendar_field.pack(pady=10, anchor='center')
 printCalendar()
-
 #calculator
 def calculator():
     calc = Tk()
@@ -332,14 +329,11 @@ def calculator():
     sin_label.pack()
     tan_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Tan: ", fg="#000000")
     tan_label.pack()
-
-
-
-
     calc.mainloop()
+#calculator button
 calculator_button = tk.Button(root, text="Calculator", font=("Georgia", 12), command=calculator)
 calculator_button.pack(pady=10)
-
+calculator_button.place(x=195, y=346)
     #clio
 def clio():
     win = Tk()
@@ -361,8 +355,24 @@ def clio():
     save_button = tk.Button(win, text="Save", font=("Georgia", 12), command=test, bg="#ffb0f3", fg="#f44848")
     save_button.pack(pady=50)
     win.mainloop()
-
-
+#music player window, button, and file prompt definition
+def melpomene():
+    beepboop = Tk()
+    beepboop.title("jamz :D")
+    beepboop.geometry("200x50")
+    beepboop.configure(bg="#e7a3f7")
+    def select():
+        Tk().withdraw()
+        filename = askopenfilename()
+        song = AudioSegment.from_mp3(filename)
+        play(song)
+        return(filename)
+    sel = tk.Button(beepboop, text="Song Select!", font=("Georgia", 12), command=select, fg= "#ceff94", bg= "#ce94ff")
+    sel.pack(pady = 10, padx=8)
+    beepboop.mainloop()
+#music player button
+music_button = tk.Button(root, text ="Jamz :D", font=("Garamond", 12), command=melpomene)
+music_button.pack()
     #urlloader buttons
 cisa_button = tk.Button(root, text="CISA", font=("Garamond", 12), command=cisaloader)
 cisa_button.pack(padx=8, side='right')
@@ -375,6 +385,5 @@ weather_button.pack(padx=2, side='left')
 clio = tk.Button(root, text="Clio", font=("Garamond", 12), command=clio)
 clio.pack(pady= 7, anchor='center')
 sp500_button = tk.Button(root, text="S&P 500", font=("Garamond", 12), command=sp500loader)
-sp500_button.pack(pady= 0, anchor='center')
-
+sp500_button.pack(pady= 50, anchor='center')
 root.mainloop()
