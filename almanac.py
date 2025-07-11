@@ -14,9 +14,9 @@ from pydub.playback import play
 #main window
 root = Tk()
 root.title("almanac")
-root.geometry("500x470")
-root.configure(bg="#eef79b")
-#urlloader definitions
+root.geometry("420x200")
+root.configure(bg="#250A29")
+#url loader definitions
 def cisaloader():
     webbrowser.open('https://www.cisa.gov/')
 def msnbcloader():
@@ -27,60 +27,12 @@ def sp500loader():
     webbrowser.open('https://markets.businessinsider.com/index/s&p_500?op=1')
 def weatherloader():
     webbrowser.open('https://weather.com/')
-#fortune dict
-fortune = {
-    "fortune1": "A sudden opportunity will arise—seize it before the moon wanes.",
-    "fortune2": "Beware of misplaced trust; not all who smile are friends.",
-    "fortune3": "A long journey begins with a single step, but check your boots first.",
-    "fortune4": "Luck favors the bold, but recklessness favors misfortune.",
-    "fortune5": "A secret admirer will reveal themselves under the next full moon.",
-    "fortune6": "Financial gains are on the horizon, but avoid risky ventures.",
-    "fortune7": "An old grudge will resurface—forgiveness brings peace.",
-    "fortune8": "Your creativity blooms; share your talents with the world.",
-    "fortune9": "A misplaced item will return when Mercury goes direct.",
-    "fortune10": "Patience is a virtue, but don’t wait too long to act.",
-    "fortune11": "A chance encounter will lead to an unexpected friendship.",
-    "fortune12": "Beware the ides of the month; double-check your plans.",
-    "fortune13": "A change in the wind brings new perspectives—embrace them.",
-    "fortune14": "Your hard work will soon be rewarded—keep pushing forward.",
-    "fortune15": "A quarrel may arise; choose your words with care.",
-    "fortune16": "The stars align in your favor—now is the time to take risks.",
-    "fortune17": "A letter from afar will bring surprising news.",
-    "fortune18": "Trust your instincts; they are sharper than you think.",
-    "fortune19": "A small kindness will return to you tenfold.",
-    "fortune20": "Avoid unnecessary conflict; harmony is within reach.",
-    "fortune21": "A new skill learned today will prove invaluable tomorrow.",
-    "fortune22": "An unexpected windfall is coming—use it wisely.",
-    "fortune23": "The past cannot be changed, but the future is yours to shape.",
-    "fortune24": "A dream will reveal hidden truths—pay attention.",
-    "fortune25": "A rival’s envy may surface; stay humble and focused.",
-    "fortune26": "Good health follows those who tend to body and mind.",
-    "fortune27": "A delayed answer will arrive when least expected.",
-    "fortune28": "Love blossoms where laughter is shared.",
-    "fortune29": "A risky gamble may pay off, but know when to walk away.",
-    "fortune30": "A change of scenery will bring renewed energy.",
-    "fortune31": "Beware false promises; not all that glitters is gold.",
-    "fortune32": "A mentor’s advice will guide you through uncertainty.",
-    "fortune33": "The early bird gets the worm, but the wise bird avoids the cat.",
-    "fortune34": "A long-held wish will soon come to fruition.",
-    "fortune35": "A stranger’s kindness will restore your faith in humanity.",
-    "fortune36": "A setback is merely a setup for a greater comeback.",
-    "fortune37": "Your words carry weight—speak with intention.",
-    "fortune38": "A forgotten goal resurfaces—now is the time to pursue it.",
-    "fortune39": "A partnership strengthens under shared challenges.",
-    "fortune40": "A hidden obstacle may delay progress—stay vigilant.",
-    "fortune41": "The answer you seek lies within, not in the stars.",
-    "fortune42": "A new chapter begins when the old one is released.",
-    "fortune43": "A small sacrifice today leads to greater rewards tomorrow.",
-    "fortune44": "A rival becomes an ally—keep an open mind.",
-    "fortune45": "A whisper in the dark reveals what daylight hides.",
-    "fortune46": "A leap of faith is required—trust in your path.",
-    "fortune47": "A lost item is closer than you think—retrace your steps.",
-    "fortune48": "A storm passes, leaving clarity in its wake.",
-    "fortune49": "A stranger’s words hold the key to a puzzle.",
-    "fortune50": "The universe conspires in your favor—act with confidence."
-}
-#defs for clock, cal, fortune, urls, and calc within almanac
+def discordloader():
+    webbrowser.open('https://www.discord.com/')
+def youtubeloader():
+    webbrowser.open('https://youtube.com')
+def twitchloader():
+    webbrowser.open('https://twitch.tv')
 #clock
 def update_time():
     current_time = strftime('%H:%M %p')
@@ -88,18 +40,11 @@ def update_time():
     time_label.config(text=current_time)
     date_label.config(text=current_date)
     root.after(1000, update_time)
-time_label = Label(root, font=('Garamond', 20, 'bold'), bg="#eef79b", fg="red")
-time_label.pack(anchor='center')
-date_label = Label(root, font=('Garamond', 10, 'bold'), bg='#eef79b',fg='red')
-date_label.pack(anchor='center')
+time_label = Label(root, font=('Lato Hairline', 22, 'bold', 'italic'), bg="#250A29", fg="#9CCC65")
+time_label.pack(anchor='nw')
+date_label = Label(root, font=('Quicksand Light', 12, 'bold', 'italic'), bg='#250A29',fg='#9CCC65')
+date_label.pack(anchor='nw')
 update_time()
-#fortuneteller
-def fortuneteller():
-    random_fortune = random.choice(list(fortune.values()))
-    fortune_label.config(text=random_fortune)
-fortune_label = Label(root, font=('Garamond', 10, 'bold'), bg='#eef79b', fg='#7905ff')
-fortune_label.pack(anchor='center')
-fortuneteller()
 #calendar
 def printCalendar():
     month = int(strftime("%m"))
@@ -112,15 +57,15 @@ def printCalendar():
     centered_calendar = '\n'.join(line.center(max_length)for line in lines)
     calendar_field.delete(1.0, 'end')
     calendar_field.insert('end', centered_calendar)
-calendar_field = Text(root, width=22, bg="#eef79b", height=8, font=("courier new", "12"), borderwidth=2, relief = "solid", wrap='none')
-calendar_field.pack(pady=10, anchor='center')
+calendar_field = Text(root, width=18, bg="#250A29", fg='#9CCC65', height=8, font=("Lato Hairline", "12", "bold"), borderwidth=2, relief = "solid", wrap='none')
+calendar_field.pack(pady=5, anchor='se')
 printCalendar()
 #calculator
 def calculator():
     calc = Tk()
     calc.title("Calculator")
-    calc.geometry("570x470")
-    calc.configure(bg="#d8f965")
+    calc.geometry("570x470+890+50")
+    calc.configure(bg="#250A29")
     #calculator
     #operations
     def addition():
@@ -241,10 +186,10 @@ def calculator():
         except ValueError:
             messagebox.showerror("Error", "need normal numbers", font=("Georgia", 12), fg="#d1ff00")
     #user input
-    tk.Label(calc, text="First number:", bg="#d8f965", font=("Georgia", 12)).pack()
+    tk.Label(calc, text="First number:", bg="#250A29", fg="#DDC1E1", font=("Georgia", 12)).pack()
     entry1 = tk.Entry(calc)
     entry1.pack()
-    tk.Label(calc, text="Second number:", bg="#d8f965", font=("Georgia", 12)).pack()
+    tk.Label(calc, text="Second number:", bg="#250A29", fg="#DDC1E1", font=("Georgia", 12)).pack()
     entry2 = tk.Entry(calc)
     entry2.pack()
     #individual buttons for operation definitions
@@ -297,49 +242,48 @@ def calculator():
     calculate_button.pack(pady=10, padx=8)
     calculate_button.place(x=440, y=60)
     #show individual outputs for each operation definition
-    addition_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Sum: ", fg="#000000")
+    addition_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Sum: ", fg="#DDC1E1")
     addition_label.pack()
-    subtraction_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Sub: ", fg="#000000")
+    subtraction_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Sub: ", fg="#DDC1E1")
     subtraction_label.pack()
-    multiplication_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Prod: ", fg="#000000")
+    multiplication_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Prod: ", fg="#DDC1E1")
     multiplication_label.pack()
-    division_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Quot: ", fg="#000000")
+    division_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Quot: ", fg="#DDC1E1")
     division_label.pack()
-    factorial_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Fact: ", fg="#000000")
+    factorial_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Fact: ", fg="#DDC1E1")
     factorial_label.pack()
-    sqrt_label = tk.Label(calc, bg="#d8f965", font= ("Georgia", 12), text= "Sqrt: ", fg="#000000")
+    sqrt_label = tk.Label(calc, bg="#250A29", font= ("Georgia", 12), text= "Sqrt: ", fg="#DDC1E1")
     sqrt_label.pack()
-    ceiling_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Ceil: ", fg="#000000")
+    ceiling_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Ceil: ", fg="#DDC1E1")
     ceiling_label.pack()
-    floor_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Floor: ", fg="#000000")
+    floor_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Floor: ", fg="#DDC1E1")
     floor_label.pack()
-    absolute_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Abso: ", fg="#000000")
+    absolute_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Abso: ", fg="#DDC1E1")
     absolute_label.pack()
-    remainder_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Rema: ", fg="#000000")
+    remainder_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Rema: ", fg="#DDC1E1")
     remainder_label.pack()
-    exp2_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Exp2: ", fg="#000000")
+    exp2_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Exp2: ", fg="#DDC1E1")
     exp2_label.pack()
-    deg_label = tk.Label(calc, bg="#d8f965", font= ("Georgia", 12), text= "Deg: ", fg="#000000")
+    deg_label = tk.Label(calc, bg="#250A29", font= ("Georgia", 12), text= "Deg: ", fg="#DDC1E1")
     deg_label.pack()
-    rad_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Rads: ", fg="#000000")
+    rad_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Rads: ", fg="#DDC1E1")
     rad_label.pack()
-    cos_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Cos: ", fg="#000000")
+    cos_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Cos: ", fg="#DDC1E1")
     cos_label.pack()
-    sin_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Sin: ", fg="#000000")
+    sin_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Sin: ", fg="#DDC1E1")
     sin_label.pack()
-    tan_label = tk.Label(calc, bg="#d8f965", font=("Georgia", 12), text="Tan: ", fg="#000000")
+    tan_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Tan: ", fg="#DDC1E1")
     tan_label.pack()
     calc.mainloop()
-#calculator button
-calculator_button = tk.Button(root, text="Calculator", font=("Georgia", 12), command=calculator)
+calculator_button = tk.Button(root, text="Calculator", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=calculator)
 calculator_button.pack(pady=10)
-calculator_button.place(x=195, y=346)
-    #clio
+calculator_button.place(x=5, y=100)
+#notepad window
 def clio():
     win = Tk()
-    win.title("Clio")
-    win.geometry("400x700")
-    win.configure(bg="#ffb0f3")
+    win.title("Notepad")
+    win.geometry("400x700+480+50")
+    win.configure(bg="#250A29")
     entry = tk.Text(win, bg="white", fg="black", wrap="word", font=("Constantia", "12")) 
     entry.place(x=10, y=90, width=380, height=600) 
     entry.focus()
@@ -352,38 +296,55 @@ def clio():
         saved.config(text="Saved!")
         saved.place(x=200, y=650)
         #save button
-    save_button = tk.Button(win, text="Save", font=("Georgia", 12), command=test, bg="#ffb0f3", fg="#f44848")
-    save_button.pack(pady=50)
+    save_button = tk.Button(win, text="Save", font=("Lato Hairline", 12, "bold"), command=test, bg="#DDC1E1")
+    save_button.pack(pady=20)
     win.mainloop()
-#music player window, button, and file prompt definition
+clio = tk.Button(root, text="Notepad", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=clio)
+clio.pack(pady= 7)
+clio.place(x=130, y=100)
+#musicbox window
 def melpomene():
     beepboop = Tk()
-    beepboop.title("jamz :D")
-    beepboop.geometry("200x50")
-    beepboop.configure(bg="#e7a3f7")
+    beepboop.title("Musicbox")
+    beepboop.geometry("200x50+100+300")
+    beepboop.configure(bg="#250A29")
+    #file selection
     def select():
         Tk().withdraw()
         filename = askopenfilename()
         song = AudioSegment.from_mp3(filename)
         play(song)
         return(filename)
-    sel = tk.Button(beepboop, text="Song Select!", font=("Georgia", 12), command=select, fg= "#ceff94", bg= "#ce94ff")
+    sel = tk.Button(beepboop, text="Select File", font=("Lato Hairline", 12, "bold"), command=select, bg= "#DDC1E1")
     sel.pack(pady = 10, padx=8)
     beepboop.mainloop()
-#music player button
-music_button = tk.Button(root, text ="Jamz :D", font=("Garamond", 12), command=melpomene)
+music_button = tk.Button(root, text =" Musicbox", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=melpomene)
 music_button.pack()
-    #urlloader buttons
-cisa_button = tk.Button(root, text="CISA", font=("Garamond", 12), command=cisaloader)
-cisa_button.pack(padx=8, side='right')
-msnbc_button = tk.Button(root, text="MSNBC", font=("Garamond", 12), command=msnbcloader)
-msnbc_button.pack(padx=2, side='right')
-cnn_button = tk.Button(root, text="CNN", font=("Garamond", 12), command=cnnloader)
-cnn_button.pack(padx=8, side='left')
-weather_button = tk.Button(root, text="Weather", font=("Garamond", 12), command=weatherloader)
-weather_button.pack(padx=2, side='left')
-clio = tk.Button(root, text="Clio", font=("Garamond", 12), command=clio)
-clio.pack(pady= 7, anchor='center')
-sp500_button = tk.Button(root, text="S&P 500", font=("Garamond", 12), command=sp500loader)
-sp500_button.pack(pady= 50, anchor='center')
+music_button.place(x=5, y=140)
+#links window
+def address():
+    adwin = Tk()
+    adwin.title("Links")
+    adwin.geometry("140x350+330+300")
+    adwin.configure(bg="#250A29")
+#url button
+    cisa_button = tk.Button(adwin, text="CISA", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=cisaloader)
+    cisa_button.pack(pady= 8, anchor='center')
+    msnbc_button = tk.Button(adwin, text="MSNBC", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=msnbcloader)
+    msnbc_button.pack(pady= 5, anchor='center')
+    cnn_button = tk.Button(adwin, text="CNN", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=cnnloader)
+    cnn_button.pack(pady= 5, anchor='center')
+    weather_button = tk.Button(adwin, text="Weather", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=weatherloader)
+    weather_button.pack(pady= 5, anchor='center')
+    youtube_button = tk.Button(adwin, text="Youtube", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=youtubeloader)
+    youtube_button.pack(pady= 5, anchor='center')
+    twitch_button = tk.Button(adwin, text="Twitch", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=twitchloader)
+    twitch_button.pack(pady= 5, anchor='center')
+    discord_button = tk.Button(adwin, text="Discord", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=discordloader)
+    discord_button.pack(pady= 5, anchor='center')
+    sp500_button = tk.Button(adwin, text="S&P 500", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=sp500loader)
+    sp500_button.pack(pady= 5, anchor='center')
+addressbut = tk.Button(root, text ="  Links   ", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=address)
+addressbut.pack()
+addressbut.place(x=130, y=140)
 root.mainloop()
