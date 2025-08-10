@@ -20,27 +20,6 @@ pay: 200 ed
 solo
 wrote a script that upgraded the dl/ul for the neighborhood so i could download mi madre's favorite movie in time for her birthday. te amo, no acentual
 pay: nada
-""",#imports
-import time
-from colorama import Fore, Back, Style
-import tkinter as tk 
-from tkinter import *
-#giglib
-gigs = {
-     "sweet home vista del rey":"""2067
-solo
-fixed a commdish that was borked big time. first ever experience netrunning, lol
-pay: 50 ed
-""",
-     "glengarry glenross":"""2067
-solo
-did some work fixing a security issue in a valentinos vending machine system--thirty installments in total. padre said i had a gift for netrunning (do i?)
-pay: 200 ed
-""",
-     "por mi mama":"""2068
-solo
-wrote a script that upgraded the dl/ul for the neighborhood so i could download mi madre's favorite movie in time for her birthday. te amo, no acentual
-pay: nada
 """,
      "the well":"""2068
 solo
