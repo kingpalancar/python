@@ -14,8 +14,9 @@ from pydub.playback import play
 #main window
 root = Tk()
 root.title("almanac")
-root.geometry("420x200")
+root.geometry("420x220")
 root.configure(bg="#250A29")
+root.overrideredirect(True)
 #url loader definitions
 def cisaloader():
     webbrowser.open('https://www.cisa.gov/')
@@ -33,6 +34,28 @@ def youtubeloader():
     webbrowser.open('https://youtube.com')
 def twitchloader():
     webbrowser.open('https://twitch.tv')
+#url searcher
+def awaugh():
+    class Searcher:
+        def __init__(self, awaugh):
+            self.awaugh = root
+            self.awaugh.title("Searcher")
+            self.awaugh.geometry("200x80+1010+0")
+            self.awaugh.configure(bg="#250A29")
+            self.url_entry = tk.Entry(root, width=40)
+            self.url_entry.pack(padx=10, pady=10)
+            self.go_button = tk.Button(root, text="Go", command=self.navigate)
+            self.go_button.pack()
+        def navigate(self):
+            url = self.url_entry.get()
+            try:
+                webbrowser.open(url)
+            except Exception:
+                pass
+    if __name__ == "__main__":
+        root = tk.Tk()
+        app = Searcher(awaugh)
+        root.mainloop()
 #clock
 def update_time():
     current_time = strftime('%H:%M %p')
@@ -57,16 +80,15 @@ def printCalendar():
     centered_calendar = '\n'.join(line.center(max_length)for line in lines)
     calendar_field.delete(1.0, 'end')
     calendar_field.insert('end', centered_calendar)
-calendar_field = Text(root, width=18, bg="#250A29", fg='#9CCC65', height=8, font=("Lato Hairline", "12", "bold"), borderwidth=2, relief = "solid", wrap='none')
+calendar_field = Text(root, width=20, bg="#250A29", fg='#9CCC65', height=8, font=("Lato Hairline", "12", "bold"), borderwidth=2, relief = "solid", wrap='none')
 calendar_field.pack(pady=5, anchor='se')
 printCalendar()
 #calculator
 def calculator():
     calc = Tk()
     calc.title("Calculator")
-    calc.geometry("570x470+890+50")
+    calc.geometry("400x470+0+221")
     calc.configure(bg="#250A29")
-    #calculator
     #operations
     def addition():
         try:
@@ -198,13 +220,13 @@ def calculator():
     calculate_button.place(x=10, y=10)
     calculate_button = tk.Button(calc, text="Add", font=("Georgia", 12), command=addition, fg="#ffffff", bg="#bba10b")
     calculate_button.pack(pady=10, padx=8)
-    calculate_button.place(x=440, y=210)
+    calculate_button.place(x=300, y=210)
     calculate_button = tk.Button(calc, text="Factorial",font=("Georgia", 12), command=factorial, fg="#ffffff", bg="#68a24e")
     calculate_button.pack(pady=10, padx=2)
-    calculate_button.place(x=440, y=260)
+    calculate_button.place(x=300, y=260)
     calculate_button = tk.Button(calc, text="Subtract", font=("Georgia", 12), command=subtraction, fg="#ffffff", bg="#5e0bbb")
     calculate_button.pack(pady=10, padx=2)
-    calculate_button.place(x=440, y=310)
+    calculate_button.place(x=300, y=310)
     calculate_button = tk.Button(calc, text="Divide", font=("Georgia", 12), command=division, fg="#ffffff", bg="#7b2d90")
     calculate_button.pack(pady=10, padx=8)
     calculate_button.place(x=10, y=60)
@@ -216,13 +238,13 @@ def calculator():
     calculate_button.place(x=10, y=160)
     calculate_button = tk.Button(calc, text="Floor", font=("Georgia", 12), command=floor, fg="#ffffff", bg="#785db7")
     calculate_button.pack(pady=10, padx=8)
-    calculate_button.place(x=440, y=10)
+    calculate_button.place(x=300, y=10)
     calculate_button = tk.Button(calc, text="Absolute",font=("Georgia", 12), command=fabs, fg="#ffffff", bg="#52daa0")
     calculate_button.pack(pady=10, padx=2)
-    calculate_button.place(x=440, y=160)
+    calculate_button.place(x=300, y=160)
     calculate_button = tk.Button(calc, text="Remainder", font=("Georgia", 12), command=remainder, fg="#ffffff", bg="#b5a128")
     calculate_button.pack(pady=10, padx=2)
-    calculate_button.place(x=440, y=110)
+    calculate_button.place(x=300, y=110)
     calculate_button = tk.Button(calc, text="Exp2", font=("Georgia", 12), command=exp2, fg="#ffffff", bg="#d0179a")
     calculate_button.pack(pady=10, padx=8)
     calculate_button.place(x=10, y=210)
@@ -234,13 +256,13 @@ def calculator():
     calculate_button.place(x=10, y=310)
     calculate_button = tk.Button(calc, text="Cosine", font=("Georgia", 12), command=cos, fg="#ffffff", bg="#ceabbd")
     calculate_button.pack(pady=10, padx=8)
-    calculate_button.place(x=440, y=360)
+    calculate_button.place(x=300, y=360)
     calculate_button = tk.Button(calc, text="Sine", font=("Georgia", 12), command=sin, fg= "#ffffff", bg= "#3ea21c")
     calculate_button.pack(pady = 10, padx=8)
     calculate_button.place(x=10, y=360)
     calculate_button = tk.Button(calc, text="Tangent", font=("Georgia", 12), command=tan, fg="#ffffff", bg="#6128b5")
     calculate_button.pack(pady=10, padx=8)
-    calculate_button.place(x=440, y=60)
+    calculate_button.place(x=300, y=60)
     #show individual outputs for each operation definition
     addition_label = tk.Label(calc, bg="#250A29", font=("Georgia", 12), text="Sum: ", fg="#DDC1E1")
     addition_label.pack()
@@ -282,10 +304,10 @@ calculator_button.place(x=5, y=100)
 def clio():
     win = Tk()
     win.title("Notepad")
-    win.geometry("400x700+480+50")
+    win.geometry("600x900+410+0")
     win.configure(bg="#250A29")
     entry = tk.Text(win, bg="white", fg="black", wrap="word", font=("Constantia", "12")) 
-    entry.place(x=10, y=90, width=380, height=600) 
+    entry.place(x=10, y=80, width=580, height=800) 
     entry.focus()
     #notepad def
     def test():
@@ -306,7 +328,7 @@ clio.place(x=130, y=100)
 def melpomene():
     beepboop = Tk()
     beepboop.title("Musicbox")
-    beepboop.geometry("200x50+100+300")
+    beepboop.geometry("400x50+0+720")
     beepboop.configure(bg="#250A29")
     #file selection
     def select():
@@ -325,26 +347,40 @@ music_button.place(x=5, y=140)
 def address():
     adwin = Tk()
     adwin.title("Links")
-    adwin.geometry("140x350+330+300")
+    adwin.geometry("400x140+0+800")
     adwin.configure(bg="#250A29")
-#url button
     cisa_button = tk.Button(adwin, text="CISA", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=cisaloader)
     cisa_button.pack(pady= 8, anchor='center')
+    cisa_button.place(x=10, y=20)
     msnbc_button = tk.Button(adwin, text="MSNBC", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=msnbcloader)
     msnbc_button.pack(pady= 5, anchor='center')
+    msnbc_button.place(x=200, y=60)
     cnn_button = tk.Button(adwin, text="CNN", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=cnnloader)
     cnn_button.pack(pady= 5, anchor='center')
+    cnn_button.place(x=10, y=60)
     weather_button = tk.Button(adwin, text="Weather", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=weatherloader)
     weather_button.pack(pady= 5, anchor='center')
+    weather_button.place(x=90, y=60)
     youtube_button = tk.Button(adwin, text="Youtube", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=youtubeloader)
     youtube_button.pack(pady= 5, anchor='center')
+    youtube_button.place(x=90, y=20)
     twitch_button = tk.Button(adwin, text="Twitch", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=twitchloader)
     twitch_button.pack(pady= 5, anchor='center')
+    twitch_button.place(x=310, y=60)
     discord_button = tk.Button(adwin, text="Discord", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=discordloader)
     discord_button.pack(pady= 5, anchor='center')
+    discord_button.place(x=310, y=20)
     sp500_button = tk.Button(adwin, text="S&P 500", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=sp500loader)
     sp500_button.pack(pady= 5, anchor='center')
+    sp500_button.place(x=200, y=20)
+    browse_button = tk.Button (adwin, text="Searcher", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=awaugh)
+    browse_button.pack(pady= 5, anchor='center') 
+    browse_button.place(x=150, y=100)
+#url button
 addressbut = tk.Button(root, text ="  Links   ", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=address)
 addressbut.pack()
 addressbut.place(x=130, y=140)
+exitbut=tk.Button(root, text="Exit", font=("Lato Hairline", 12, "bold"), bg= "#DDC1E1", command=root.destroy)
+exitbut.pack()
+exitbut.place(x=300, y=10)
 root.mainloop()
